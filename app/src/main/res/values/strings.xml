@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">ZedSampleApp</string>
+    <string name="title_number_of_days">Количество дней</string>
+    <string name="title_number_of_days_total">Календарных</string>
+    <string name="title_number_of_working_days">Рабочих</string>
+    <string name="title_number_of_non_working_days">Выходных и праздничных</string>
+    <string name="title_number_of_working_hours">Рабочее время в часах при рабочей неделе</string>
+    <string name="title_number_of_working_hours_40h">40-часовой</string>
+    <string name="title_number_of_working_hours_36h">36-часовой</string>
+    <string name="title_number_of_working_hours_24h">24-часовой</string>
+    <string name="title_holidays">Праздники</string>
+    <string name="title_other">Общая информация</string>
+    <string name="title_quarter">Квартал</string>
+    <string name="tilel_half_year">Полугодие</string>
+    <string name="title_year">Год</string>
+
+
+</resources>

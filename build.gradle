@@ -1,0 +1,84 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+project.ext {
+
+//Android
+    androidBuildToolsVersion = "25.0.3"
+    androidMinSdkVersion = 16
+    androidTargetSdkVersion = 25
+    androidCompileSdkVersion = 25
+    androidApplicationId = "com.osh.zedsampleapp"
+    androidVersionCode = 1
+    androidVersionName = "1.0"
+
+//Libraries versions
+    supportVersion = '25.3.1'
+    daggerVersion = '2.8'
+    butterKnifeVersion = '7.0.1'
+    butterKnifeCompilerVersion = '8.2.1'
+    recyclerViewVersion = '21.0.3'
+    rxJavaVersion = '2.0.2'
+    rxAndroidVersion = '2.0.1'
+    javaxAnnotationVersion = '1.0'
+    javaxInjectVersion = '1'
+    gsonVersion = '2.3'
+    okHttpVersion = '2.5.0'
+    androidAnnotationsVersion = '21.0.3'
+    arrowVersion = '1.0.0'
+    retrofitVersion = '2.1.0'
+    gsonConverterVersion = '2.1.0'
+    picassoVersion = '2.5.2'
+    javaPoetVersion = '1.9.0'
+
+// Libraries deps
+    libAppcompat = "com.android.support:appcompat-v7:${supportVersion}"
+    libDesign = "com.android.support:design:${supportVersion}"
+    libRecyclerview = "com.android.support:recyclerview-v7:${supportVersion}"
+    libSupport = "com.android.support:support-v4:${supportVersion}"
+    libDagger = "com.google.dagger:dagger:${daggerVersion}"
+    libButterknife = "com.jakewharton:butterknife:${butterKnifeVersion}"
+    libRxJava = "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
+    libRxAndroid = "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}"
+    libJavaxInject = "javax.inject:javax.inject:${javaxInjectVersion}"
+    libOkHttp = "com.squareup.okhttp:okhttp:${okHttpVersion}"
+    libGson = "com.google.code.gson:gson:${gsonVersion}"
+    libRetrofit = "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    libGsonConverter = "com.squareup.retrofit2:converter-gson:${gsonConverterVersion}"
+    libPicasso = "com.squareup.picasso:picasso:${picassoVersion}"
+    libJavaPoet = "com.squareup:javapoet:${javaPoetVersion}"
+    libJSoup = 'org.jsoup:jsoup:1.10.1'
+
+// compilers
+    aptDagger = "com.google.dagger:dagger-compiler:${daggerVersion}"
+    aptButterknife = "com.jakewharton:butterknife-compiler:${butterKnifeCompilerVersion}"
+
+//
+    providedJavaXAnnotation = "javax.annotation:jsr250-api:${javaxAnnotationVersion}"
+
+//Development
+    leakCanaryVersion = '1.3.1'
+
+}
