@@ -1,6 +1,7 @@
 package com.osh.zedsampleapp.presentation.views.widgets;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -8,6 +9,7 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 
 import com.osh.zedsampleapp.R;
 import com.osh.zedsampleapp.common.presentation.view.BaseDataView;
@@ -17,13 +19,25 @@ import com.osh.zedsampleapp.presentation.views.utils.ViewUtils;
 
 import java.util.Calendar;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by olegshatava on 24.10.17.
  */
 
 public class MonthCalendarWidget extends BaseDataView<MonthEntity> {
 
+    private static final int DEFAULT_TEXT_SIZE = 12;
     private Calendar calendar = Calendar.getInstance();
+
+    private int textSizeSP;
+    private int weekTitleTextColor;
+    private int workingDayTextColor;
+    private int nonWorkingDayTextColor;
+    private int workingNonFullDayTextColor;
+    private int nonWorkingDayBgColor;
+    private int workingNonFullDayBgColor;
+
     private Paint headerTextPaint;
     private Paint headerCellPaint;
 
@@ -48,12 +62,13 @@ public class MonthCalendarWidget extends BaseDataView<MonthEntity> {
 
     public MonthCalendarWidget(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        initAttributes(context, attrs);
         initPaint();
     }
 
     private void initPaint(){
 
-        float textSize = ViewUtils.dpToPx(getContext(), 12);
+        float textSize = ViewUtils.dpToPx(getContext(), textSizeSP);
         cellCircleBorder = ViewUtils.dpToPx(getContext(), 2);
 
         calendar.set(Calendar.DAY_OF_MONTH, 1);
@@ -62,7 +77,7 @@ public class MonthCalendarWidget extends BaseDataView<MonthEntity> {
         setWillNotDraw(false);
 
         headerTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        headerTextPaint.setColor(Color.DKGRAY);
+        headerTextPaint.setColor(weekTitleTextColor);
         headerTextPaint.setTextAlign(Paint.Align.CENTER);
         headerTextPaint.setTextSize(textSize);
 
@@ -70,32 +85,48 @@ public class MonthCalendarWidget extends BaseDataView<MonthEntity> {
 
 
         workDayTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        workDayTextPaint.setColor(Color.BLACK);
+        workDayTextPaint.setColor(workingDayTextColor);
         workDayTextPaint.setTextSize(textSize);
         workDayTextPaint.setTextAlign(Paint.Align.CENTER);
 
         workDayCellPaint = null;
 
         nonWorkDayTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        nonWorkDayTextPaint.setColor(Color.WHITE);
+        nonWorkDayTextPaint.setColor(nonWorkingDayTextColor);
         nonWorkDayTextPaint.setTextSize(textSize);
         nonWorkDayTextPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
         nonWorkDayTextPaint.setTextAlign(Paint.Align.CENTER);
 
         nonWorkDayCellPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        nonWorkDayCellPaint.setColor(Color.RED);
+        nonWorkDayCellPaint.setColor(nonWorkingDayBgColor);
 
         nonFullWorkDayTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        nonFullWorkDayTextPaint.setColor(Color.BLACK);
+        nonFullWorkDayTextPaint.setColor(workingNonFullDayTextColor);
         nonFullWorkDayTextPaint.setTextSize(textSize);
         nonFullWorkDayTextPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
         nonFullWorkDayTextPaint.setTextAlign(Paint.Align.CENTER);
 
         nonFullWorkDayCellPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        nonFullWorkDayCellPaint.setColor(Color.YELLOW);
+        nonFullWorkDayCellPaint.setColor(workingNonFullDayBgColor);
 
         if(isInEditMode())
             calendar = Calendar.getInstance();
+    }
+
+    private void initAttributes(Context context, AttributeSet attrs) {
+
+        if (attrs!=null) {
+            TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.MonthCalendarWidget, 0, 0);
+            textSizeSP = a.getInteger(R.styleable.MonthCalendarWidget_textSize, DEFAULT_TEXT_SIZE);
+            weekTitleTextColor = a.getColor(R.styleable.MonthCalendarWidget_weekTitleTextColor, Color.DKGRAY);
+            workingDayTextColor = a.getColor(R.styleable.MonthCalendarWidget_workingDayTextColor, Color.BLACK);
+            nonWorkingDayTextColor = a.getColor(R.styleable.MonthCalendarWidget_nonWorkingDayTextColor, Color.WHITE);
+            workingNonFullDayTextColor = a.getColor(R.styleable.MonthCalendarWidget_workingNonFullDayTextColor, Color.BLACK);
+            nonWorkingDayBgColor = a.getColor(R.styleable.MonthCalendarWidget_nonWorkingDayBgColor, Color.RED);
+            workingNonFullDayBgColor = a.getColor(R.styleable.MonthCalendarWidget_workingNonFullDayBgColor, Color.YELLOW);
+            a.recycle();
+        }
+
     }
 
     @Override

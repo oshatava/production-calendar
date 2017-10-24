@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name = "MonthCalendarWidget">
+        <attr name="textSize" format="integer"/>
+        <attr name="weekTitleTextColor" format="color"/>
+        <attr name="workingDayTextColor" format="color"/>
+        <attr name="nonWorkingDayTextColor" format="color"/>
+        <attr name="workingNonFullDayTextColor" format="color"/>
+        <attr name="nonWorkingDayBgColor" format="color"/>
+        <attr name="workingNonFullDayBgColor" format="color"/>
+
+    </declare-styleable>
+
+</resources>
