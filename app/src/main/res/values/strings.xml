@@ -11,8 +11,9 @@
     <string name="title_holidays">Праздники</string>
     <string name="title_other">Общая информация</string>
     <string name="title_quarter">Квартал</string>
-    <string name="tilel_half_year">Полугодие</string>
+    <string name="title_half_year">Полугодие</string>
     <string name="title_year">Год</string>
+    <string name="title_month">Месяц</string>
 
 
 </resources>

@@ -9,9 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-/**
- * Created by nlebedev on 06.05.2015.
- */
+import com.osh.zedsampleapp.common.presentation.view.BaseDataView;
+
+import java.util.List;
+
 public class ViewUtils {
 
     public static float dpToPx(Context context, float valueInDp) {
@@ -118,6 +119,24 @@ public class ViewUtils {
         TextView tv = findViewById(root, id);
         if(tv!=null)
             tv.setText(text);
+    }
+
+
+    public static interface ItemSetup<DataClass, ViewClass>{
+        void OnItem(DataClass data, ViewClass view);
+    }
+
+    public static <DataClass, ViewClass extends BaseDataView<DataClass>> void fillContainerWithItems(ViewGroup container, int layoutResId, List<DataClass> items, ItemSetup<DataClass, ViewClass> itemSetup) {
+        if(container!=null) {
+            container.removeAllViews();
+            for (DataClass data : items) {
+                ViewClass view = inflate(container, layoutResId);
+                view.showData(data);
+                if(itemSetup!=null)
+                    itemSetup.OnItem(data, view);
+                container.addView(view);
+            }
+        }
     }
 
 }
