@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
-          package="com.osh.zedsampleapp"
+          package="com.osh.prodcal"
     >
 
     <application
@@ -10,15 +10,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".application.ZedApplication">
+        android:name="com.osh.prodcal.application.PCApplication">
 
         <activity
-            android:name=".presentation.activities.MainActivity">
+            android:name="com.osh.prodcal.presentation.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.osh.prodcal.presentation.activities.YearViewActivity" />
 
     </application>
 

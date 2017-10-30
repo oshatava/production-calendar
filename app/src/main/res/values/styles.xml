@@ -44,5 +44,16 @@
         <item name="android:layout_marginBottom">8dp</item>
     </style>
 
+    <style name="YearViewCalendarStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="nonWorkingDayBgColor">@color/red</item>
+        <item name="textSize">6</item>
+        <item name="weekTitleTextColor">@color/gray</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
 
 </resources>

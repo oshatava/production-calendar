@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <fragment
         android:id="@id/container"
-        android:name="com.osh.zedsampleapp.presentation.fragments.MonthSelectorFragment"
+        android:name="com.osh.prodcal.presentation.fragments.month.MonthSelectorFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-    />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
 
-</android.support.design.widget.CoordinatorLayout>
+    <fragment
+        android:id="@+id/monthInfo"
+        android:name="com.osh.prodcal.presentation.fragments.month.MonthInfoFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+</LinearLayout>
