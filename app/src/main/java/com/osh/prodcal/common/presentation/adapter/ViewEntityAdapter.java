@@ -14,16 +14,26 @@ import java.util.List;
  */
 
 public class ViewEntityAdapter <ViewClass extends BaseDataListItemView<EntityClass, ListenerClass>, EntityClass, ListenerClass>
-        extends RecyclerView.Adapter<ViewEntityHolder<EntityClass, ListenerClass, ViewClass>>{
+        extends RecyclerView.Adapter<ViewEntityHolder<EntityClass, ListenerClass, ViewClass>> {
 
-    private int itemLayoutResId;
+    private LayoutResFabric layoutResFabric;
     private final List<EntityClass> items = new ArrayList<>();
     private ListenerClass itemListener;
+    private ItemViewType<EntityClass> itemViewType;
 
     public ViewEntityAdapter(int itemLayoutResId, ListenerClass itemListener) {
-        this.itemLayoutResId = itemLayoutResId;
+        this.layoutResFabric = data -> itemLayoutResId;
         this.itemListener = itemListener;
     }
+
+
+    public ViewEntityAdapter(ItemViewType<EntityClass> itemViewType, ListenerClass itemListener) {
+        this.layoutResFabric = data->data;
+        this.itemListener = itemListener;
+        this.itemViewType = itemViewType;
+
+    }
+
 
     public void setItems(List<EntityClass> items) {
         this.items.clear();
@@ -33,9 +43,18 @@ public class ViewEntityAdapter <ViewClass extends BaseDataListItemView<EntityCla
 
 
     @Override
+    public int getItemViewType(int position) {
+        if (itemViewType != null) {
+            return itemViewType.getLayoutRes(getItem(position));
+        } else
+            return super.getItemViewType(position);
+
+    }
+
+    @Override
     public ViewEntityHolder<EntityClass, ListenerClass, ViewClass> onCreateViewHolder(ViewGroup parent, int viewType) {
         ViewClass v = (ViewClass) LayoutInflater.from(parent.getContext())
-                .inflate(itemLayoutResId, parent, false);
+                .inflate(layoutResFabric.getLayoutRes(viewType), parent, false);
 
         ViewEntityHolder<EntityClass, ListenerClass, ViewClass> vh = new ViewEntityHolder<>(v, itemListener);
         return vh;
@@ -53,5 +72,13 @@ public class ViewEntityAdapter <ViewClass extends BaseDataListItemView<EntityCla
 
     public EntityClass getItem(int position) {
         return items.get(position);
+    }
+
+    public interface LayoutResFabric {
+        int getLayoutRes(int viewType);
+    }
+
+    public interface ItemViewType<EntityClass> {
+        int getLayoutRes(EntityClass entityClass);
     }
 }
