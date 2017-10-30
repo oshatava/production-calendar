@@ -30,7 +30,7 @@ project.ext {
     androidMinSdkVersion = 16
     androidTargetSdkVersion = 25
     androidCompileSdkVersion = 25
-    androidApplicationId = "com.osh.zedsampleapp"
+    androidApplicationId = "com.osh.prodcal"
     androidVersionCode = 1
     androidVersionName = "1.0"
 
