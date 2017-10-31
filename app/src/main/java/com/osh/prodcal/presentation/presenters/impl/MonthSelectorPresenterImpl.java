@@ -31,7 +31,7 @@ public class MonthSelectorPresenterImpl extends BasePresenterComposite<MonthSele
                                       ObserveCurrentMonth observeCurrentMonth,
                                       SetCurrentMonth setCurrentMonth,
                                       MonthSelectorView view) {
-        super(UseCaseCollection.builder().add(getMonthsList).add(setCurrentMonth).add(observeCurrentMonth).build(), view);
+        super(view, getMonthsList, observeCurrentMonth, setCurrentMonth);
         this.navigator = navigator;
         this.getMonthsList = getMonthsList;
         this.setCurrentMonth = setCurrentMonth;

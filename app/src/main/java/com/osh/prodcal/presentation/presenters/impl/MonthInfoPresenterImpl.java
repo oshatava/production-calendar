@@ -31,7 +31,7 @@ public class MonthInfoPresenterImpl extends BasePresenterComposite<MonthInfoView
 
     @Inject
     public MonthInfoPresenterImpl(Navigator navigator, GetMonthEntity getMonthEntity, ObserveCurrentMonth observeCurrentMonth, MonthInfoView view) {
-        super(UseCaseCollection.builder().add(getMonthEntity).add(observeCurrentMonth).build(), view);
+        super(view, getMonthEntity, observeCurrentMonth);
         this.getMonthEntity = getMonthEntity;
         this.observeCurrentMonth = observeCurrentMonth;
         this.navigator = navigator;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.osh.prodcal.presentation.views.HolidayItemView
+<com.osh.prodcal.presentation.views.listitems.TitleValueItemView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +8,7 @@
     android:foreground="@drawable/bg_button">
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/title"
         style="@style/TextBody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,4 +18,4 @@
         tools:text="Новый год"
         />
 
-</com.osh.prodcal.presentation.views.HolidayItemView>
+</com.osh.prodcal.presentation.views.listitems.TitleValueItemView>
