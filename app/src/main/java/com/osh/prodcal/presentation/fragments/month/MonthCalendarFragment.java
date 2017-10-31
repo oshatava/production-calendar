@@ -35,9 +35,7 @@ public class MonthCalendarFragment extends BaseFragment<MonthCalendarPresenter> 
 
     private MonthCalendarWidget calendarWidget;
 
-    public MonthCalendarFragment(){
-        setRetainInstance(true);
-    }
+    public MonthCalendarFragment(){}
 
     @Inject
     public MonthCalendarPresenter presenter;

@@ -1,6 +1,7 @@
 package com.osh.prodcal.presentation.fragments.month;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -31,7 +32,7 @@ public class MonthSelectorFragment extends BaseFragment<MonthSelectorPresenter> 
     private ViewPager pager;
     private MonthAdapter monthAdapter;
     public MonthSelectorFragment(){
-        setRetainInstance(true);
+
     }
 
     @Inject
@@ -135,6 +136,11 @@ public class MonthSelectorFragment extends BaseFragment<MonthSelectorPresenter> 
 
         public MonthKeyEntity getDataByIndex(int position) {
             return items.get(position);
+        }
+
+        @Override
+        public void restoreState(Parcelable state, ClassLoader loader) {
+            //super.restoreState(state, loader);
         }
     }
 

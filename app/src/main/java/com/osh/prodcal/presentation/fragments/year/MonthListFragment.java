@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.osh.prodcal.R;
 import com.osh.prodcal.application.di.AppComponent;
 import com.osh.prodcal.domain.MonthEntity;
+import com.osh.prodcal.domain.MonthKeyEntity;
 import com.osh.prodcal.presentation.fragments.common.BaseFragment;
 import com.osh.prodcal.presentation.presenters.MonthListPresenter;
 import com.osh.prodcal.presentation.views.MonthListView;
@@ -61,39 +62,23 @@ public class MonthListFragment extends BaseFragment<MonthListPresenter> implemen
         pager = (ViewPager)view.findViewById(R.id.pager);
         monthAdapter = new MonthAdapter(getChildFragmentManager());
         pager.setAdapter(monthAdapter);
-        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                //getPresenter().onCurrentMonthChanged(monthAdapter.getDataByIndex(position));
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
     }
 
 
     @Override
-    public void showMonths(MonthEntity current, List<MonthEntity> months) {
+    public void showMonths(MonthKeyEntity current, List<MonthEntity> months) {
 
         List<Integer> items = new ArrayList<>();
 
         Observable
                 .just(months)
                 .flatMapIterable(i->i)
-                .flatMap(m->Observable.just(m.getMonthId()))
+                .flatMap(m->Observable.just(m.getCurrentYear()))
                 .distinct()
                 .subscribe(items::add);
 
         monthAdapter.setItems(items);
-        pager.setCurrentItem(items.indexOf(current.getCurrentYear()), false);
+        pager.setCurrentItem(items.indexOf(current.getYear()), false);
     }
 
 

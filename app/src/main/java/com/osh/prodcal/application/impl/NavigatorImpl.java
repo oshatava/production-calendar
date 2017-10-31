@@ -40,7 +40,15 @@ public class NavigatorImpl implements Navigator {
         Activity activity = currentActivity.get();
         if(activity!=null) {
             Intent intent = new Intent(activity, YearViewActivity.class);
-            activity.startActivityForResult(intent, REQUEST_SHOW_MONTH_SELECTOR);
+            activity.startActivity(intent);
+        }
+    }
+
+    @Override
+    public void close() {
+        Activity activity = currentActivity.get();
+        if(activity!=null){
+            activity.finish();
         }
     }
 }

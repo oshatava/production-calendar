@@ -1,6 +1,7 @@
 package com.osh.prodcal.presentation.di;
 
 import com.osh.prodcal.application.Navigator;
+import com.osh.prodcal.domain.usecase.GetMonthEntitiesList;
 import com.osh.prodcal.domain.usecase.GetMonthEntitiesListForYear;
 import com.osh.prodcal.domain.usecase.GetMonthEntity;
 import com.osh.prodcal.domain.usecase.GetMonthsList;
@@ -13,6 +14,7 @@ import com.osh.prodcal.presentation.presenters.MonthSelectorPresenter;
 import com.osh.prodcal.presentation.presenters.YearCalendarPresenter;
 import com.osh.prodcal.presentation.presenters.impl.MonthCalendarPresenterImpl;
 import com.osh.prodcal.presentation.presenters.impl.MonthInfoPresenterImpl;
+import com.osh.prodcal.presentation.presenters.impl.MonthListPresenterImpl;
 import com.osh.prodcal.presentation.presenters.impl.MonthSelectorPresenterImpl;
 import com.osh.prodcal.presentation.presenters.impl.YearCalendarPresenterImpl;
 
@@ -43,13 +45,18 @@ public class PresentationModule {
     }
 
     @Provides
-    public MonthListPresenter provideMonthListPresenter(Navigator navigator, GetMonthEntity getMonthEntity){
-        return null;
+    public MonthListPresenter provideMonthListPresenter(Navigator navigator,
+                                                        GetMonthEntitiesList getMonthEntitiesList,
+                                                        ObserveCurrentMonth observeCurrentMonth,
+                                                        SetCurrentMonth setCurrentMonth){
+        return new MonthListPresenterImpl(navigator, getMonthEntitiesList, observeCurrentMonth, setCurrentMonth);
     }
 
     @Provides
-    public YearCalendarPresenter provideYearCalendarPresenter(GetMonthEntitiesListForYear getMonthEntitiesListForYear){
-        return new YearCalendarPresenterImpl(getMonthEntitiesListForYear, null);
+    public YearCalendarPresenter provideYearCalendarPresenter(Navigator navigator,
+                                                              GetMonthEntitiesListForYear getMonthEntitiesListForYear,
+                                                              SetCurrentMonth setCurrentMonth){
+        return new YearCalendarPresenterImpl(navigator, null, getMonthEntitiesListForYear, setCurrentMonth);
     }
 
 }

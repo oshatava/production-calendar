@@ -7,8 +7,9 @@ import com.osh.prodcal.data.dto.Holiday;
  */
 
 public interface Navigator {
-    public static final int REQUEST_SHOW_MONTH_SELECTOR = 1;
 
     void showHolidayInfo(Holiday holiday);
     void showMonthSelectorActivity();
+
+    void close();
 }

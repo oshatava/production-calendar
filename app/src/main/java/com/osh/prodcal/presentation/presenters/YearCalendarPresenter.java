@@ -2,6 +2,7 @@ package com.osh.prodcal.presentation.presenters;
 
 import com.osh.prodcal.common.presentation.presenter.HasState;
 import com.osh.prodcal.common.presentation.presenter.Presenter;
+import com.osh.prodcal.domain.MonthKeyEntity;
 import com.osh.prodcal.presentation.views.YearCalendarView;
 
 /**
@@ -9,6 +10,7 @@ import com.osh.prodcal.presentation.views.YearCalendarView;
  */
 
 public interface YearCalendarPresenter extends Presenter<YearCalendarView>, HasState{
-    public static String KEY_YEAR = "YearCalendarPresenter.YEAR";
+    String KEY_YEAR = "YearCalendarPresenter.YEAR";
 
+    void onSelectMonth(MonthKeyEntity monthKeyEntity);
 }

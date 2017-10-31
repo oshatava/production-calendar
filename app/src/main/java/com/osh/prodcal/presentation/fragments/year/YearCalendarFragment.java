@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.osh.prodcal.R;
 import com.osh.prodcal.application.di.AppComponent;
 import com.osh.prodcal.domain.MonthEntity;
+import com.osh.prodcal.domain.MonthKeyEntity;
 import com.osh.prodcal.presentation.fragments.common.BaseFragment;
 import com.osh.prodcal.presentation.presenters.YearCalendarPresenter;
 import com.osh.prodcal.presentation.views.YearCalendarView;
@@ -80,8 +81,10 @@ public class YearCalendarFragment extends BaseFragment<YearCalendarPresenter> im
     public void showYear(List<MonthEntity> monthEntities) {
         for(MonthEntity me:monthEntities){
             MonthCalendarWidget cv = calendarWidgets.get(me.getMonthId());
-            if(cv!=null)
+            if(cv!=null) {
                 cv.showData(me);
+                ViewUtils.onClick(cv, v->getPresenter().onSelectMonth(new MonthKeyEntity(me.getCurrentYear(), me.getMonthId())));
+            }
         }
     }
 }

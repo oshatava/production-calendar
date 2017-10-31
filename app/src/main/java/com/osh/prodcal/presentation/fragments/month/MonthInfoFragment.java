@@ -31,9 +31,7 @@ public class MonthInfoFragment extends BaseFragment<MonthInfoPresenter> implemen
     private RecyclerView list;
     private ViewEntityAdapter<TitleValueItemView, TitleValueItemView.Data, TitleValueItemView.Listener> adapter;
 
-    public MonthInfoFragment() {
-        setRetainInstance(true);
-    }
+    public MonthInfoFragment() {}
 
     @Inject
     public MonthInfoPresenter presenter;

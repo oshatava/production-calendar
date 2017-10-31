@@ -2,6 +2,7 @@ package com.osh.prodcal.presentation.views;
 
 import com.osh.prodcal.common.presentation.view.View;
 import com.osh.prodcal.domain.MonthEntity;
+import com.osh.prodcal.domain.MonthKeyEntity;
 
 import java.util.List;
 
@@ -10,5 +11,5 @@ import java.util.List;
  */
 
 public interface MonthListView extends View{
-    void showMonths(MonthEntity current, List<MonthEntity> months);
+    void showMonths(MonthKeyEntity current, List<MonthEntity> months);
 }
