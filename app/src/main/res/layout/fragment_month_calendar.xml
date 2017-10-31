@@ -13,6 +13,7 @@
         app:textSize="12"
         app:weekTitleTextColor="@color/gray"
         app:nonWorkingDayBgColor="@color/red"
+        app:showWeekNumber="false"
         />
 
 </FrameLayout>

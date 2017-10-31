@@ -77,7 +77,8 @@ public class MonthSelectorFragment extends BaseFragment<MonthSelectorPresenter> 
 
             }
         });
-        ViewUtils.onClick(view, R.id.monthTitle, v->{
+
+        ViewUtils.onClick(view, R.id.showYearCalendar, v->{
             getPresenter().onShowFullYear();
         });
     }

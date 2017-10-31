@@ -158,7 +158,192 @@
   },
   {
     "id": 2018,
-    "holidays": [],
-    "monthData": []
+    "holidays": [
+      {
+        "id": 1,
+        "title": "Новогодние каникулы (в ред. Федерального закона от 23.04.2012 № 35-ФЗ)"
+      },
+      {
+        "id": 2,
+        "title": "Рождество Христово"
+      },
+      {
+        "id": 3,
+        "title": "День защитника Отечества"
+      },
+      {
+        "id": 4,
+        "title": "Международный женский день"
+      },
+      {
+        "id": 5,
+        "title": "Праздник Весны и Труда"
+      },
+      {
+        "id": 6,
+        "title": "День Победы"
+      },
+      {
+        "id": 7,
+        "title": "День России"
+      },
+      {
+        "id": 8,
+        "title": "День народного единства"
+      }
+    ],
+    "monthData": [
+      {
+      "id": 0,
+      "days": [
+        {
+          "id": 1,
+          "holiday": "1"
+        },
+        {
+          "id": 2,
+          "holiday": "1"
+        },
+        {
+          "id": 3,
+          "holiday": "1"
+        },
+        {
+          "id": 4,
+          "holiday": "1"
+        },
+        {
+          "id": 5,
+          "holiday": "1"
+        },
+        {
+          "id": 6,
+          "holiday": "1"
+        },
+        {
+          "id": 7,
+          "holiday": "2"
+        },
+        {
+          "id": 8,
+          "holiday": "1"
+        }
+      ]
+    },
+      {
+        "id": 1,
+        "days": [
+          {
+            "id": 22,
+            "isFull": false,
+            "isWorked": true
+          },
+          {
+            "id": 23,
+            "holiday": 3
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "days": [
+          {
+            "id": 7,
+            "isFull": false,
+            "isWorked": true
+          },
+          {
+            "id": 8,
+            "holiday": 4
+          },
+          {
+            "id": 9,
+            "isWorked": false
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "days": [
+          {
+            "id": 28,
+            "isFull": false,
+            "isWorked": true
+          },
+          {
+            "id": 30,
+            "isWorked": false
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "days": [
+          {
+            "id": 1,
+            "holiday": 5
+          },
+          {
+            "id": 2,
+            "isWorked": false
+          },
+          {
+            "id": 8,
+            "isFull": false,
+            "isWorked": true
+          },
+          {
+            "id": 9,
+            "holiday": 6
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "days": [
+          {
+            "id": 9,
+            "isFull": false,
+            "isWorked": true
+          },
+          {
+            "id": 11,
+            "isWorked": false
+          },
+          {
+            "id": 12,
+            "holiday": 7
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "days": [
+          {
+            "id": 4,
+            "holiday": 8
+          },
+          {
+            "id": 5,
+            "isWorked": false
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "days": [
+          {
+            "id": 29,
+            "isFull": false,
+            "isWorked": true
+          },
+          {
+            "id": 31,
+            "isWorked": false
+          }
+        ]
+      }
+    ]
   }
+
 ]

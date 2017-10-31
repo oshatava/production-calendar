@@ -16,6 +16,8 @@ import com.osh.prodcal.domain.MonthKeyEntity;
 import com.osh.prodcal.presentation.fragments.common.BaseFragment;
 import com.osh.prodcal.presentation.presenters.MonthListPresenter;
 import com.osh.prodcal.presentation.views.MonthListView;
+import com.osh.prodcal.presentation.views.utils.StringUtils;
+import com.osh.prodcal.presentation.views.utils.ViewUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +64,12 @@ public class MonthListFragment extends BaseFragment<MonthListPresenter> implemen
         pager = (ViewPager)view.findViewById(R.id.pager);
         monthAdapter = new MonthAdapter(getChildFragmentManager());
         pager.setAdapter(monthAdapter);
+        pager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
+            @Override
+            public void onPageSelected(int position) {
+                ViewUtils.text(view, R.id.yearTitle, StringUtils.toString(monthAdapter.getItemValue(position)));
+            }
+        });
     }
 
 
@@ -96,6 +104,10 @@ public class MonthListFragment extends BaseFragment<MonthListPresenter> implemen
             notifyDataSetChanged();
         }
 
+        public Integer getItemValue(int position) {
+            return items.get(position);
+        }
+
         @Override
         public int getCount() {
             return this.items.size();
@@ -103,7 +115,7 @@ public class MonthListFragment extends BaseFragment<MonthListPresenter> implemen
 
         @Override
         public Fragment getItem(int position) {
-            return YearCalendarFragment.newInstance(items.get(position));
+            return YearCalendarFragment.newInstance(getItemValue(position));
         }
     }
 

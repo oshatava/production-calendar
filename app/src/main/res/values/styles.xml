@@ -15,7 +15,7 @@
     <style name="TextNavBarHeader">
         <item name="android:textColor">@color/black</item>
         <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="TextHeader">
@@ -49,10 +49,12 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_marginBottom">8dp</item>
         <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:foreground">@drawable/bg_button</item>
         <item name="nonWorkingDayBgColor">@color/red</item>
-        <item name="textSize">6</item>
+        <item name="textSize">8</item>
         <item name="weekTitleTextColor">@color/gray</item>
-        <item name="android:layout_margin">8dp</item>
+        <item name="showMonthLabel">true</item>
     </style>
 
 

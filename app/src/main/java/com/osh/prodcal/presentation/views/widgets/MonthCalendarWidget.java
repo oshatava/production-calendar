@@ -34,6 +34,8 @@ public class MonthCalendarWidget extends BaseDataView<MonthEntity> {
     private int workingNonFullDayTextColor;
     private int nonWorkingDayBgColor;
     private int workingNonFullDayBgColor;
+    private boolean showMonthLabel;
+    private boolean showWeekNumber;
 
     private Paint headerTextPaint;
     private Paint headerCellPaint;
@@ -65,11 +67,14 @@ public class MonthCalendarWidget extends BaseDataView<MonthEntity> {
 
     private void initPaint(){
 
-        float textSize = ViewUtils.dpToPx(getContext(), textSizeSP);
-        cellCircleBorder = ViewUtils.dpToPx(getContext(), 2);
 
-        calendar.set(Calendar.DAY_OF_MONTH, 1);
-        hasDayOffset = calendar.get(Calendar.WEEK_OF_MONTH) == 0;
+        float textSize = ViewUtils.dpToPx(getContext(), textSizeSP);
+        cellCircleBorder = ViewUtils.dpToPx(getContext(), 1);
+
+        if(isInEditMode()) {
+            calendar.set(Calendar.DAY_OF_MONTH, 1);
+            hasDayOffset = calendar.get(Calendar.WEEK_OF_MONTH) == 0;
+        }
 
         setWillNotDraw(false);
 
@@ -106,8 +111,6 @@ public class MonthCalendarWidget extends BaseDataView<MonthEntity> {
         nonFullWorkDayCellPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         nonFullWorkDayCellPaint.setColor(workingNonFullDayBgColor);
 
-        if(isInEditMode())
-            calendar = Calendar.getInstance();
     }
 
     private void initAttributes(Context context, AttributeSet attrs) {
@@ -121,9 +124,10 @@ public class MonthCalendarWidget extends BaseDataView<MonthEntity> {
             workingNonFullDayTextColor = a.getColor(R.styleable.MonthCalendarWidget_workingNonFullDayTextColor, Color.BLACK);
             nonWorkingDayBgColor = a.getColor(R.styleable.MonthCalendarWidget_nonWorkingDayBgColor, Color.RED);
             workingNonFullDayBgColor = a.getColor(R.styleable.MonthCalendarWidget_workingNonFullDayBgColor, Color.YELLOW);
+            showMonthLabel = a.getBoolean(R.styleable.MonthCalendarWidget_showMonthLabel, false);
+            showWeekNumber = a.getBoolean(R.styleable.MonthCalendarWidget_showWeekNumber, false);
             a.recycle();
         }
-
     }
 
     @Override
@@ -134,7 +138,9 @@ public class MonthCalendarWidget extends BaseDataView<MonthEntity> {
     }
 
 
-    boolean hasDayOffset = false;
+    private boolean hasDayOffset = false;
+    private int firstWeekIndex = 100000;
+    private int lastWeekIndex = 0;
 
     private int getWeekOfMonth(Calendar calendar){
         return calendar.get(Calendar.WEEK_OF_MONTH) - (hasDayOffset?0:1);
@@ -160,6 +166,11 @@ public class MonthCalendarWidget extends BaseDataView<MonthEntity> {
         for(int i=1; i<=calendar.getActualMaximum(Calendar.DAY_OF_MONTH); i++){
             drawDay(canvas, i);
         }
+        if(showWeekNumber){
+            for(int i=0; i<=lastWeekIndex - firstWeekIndex; i++){
+                drawTextLabel(canvas, getCellRect(0, (showMonthLabel?1:0)+1+i), Integer.toString(i+firstWeekIndex), headerTextPaint);
+            }
+        }
     }
 
     private Calendar getCalendar(int dayNumber){
@@ -173,13 +184,20 @@ public class MonthCalendarWidget extends BaseDataView<MonthEntity> {
         return calendar;
     }
 
+
     private void drawDay(Canvas canvas, int i) {
         Calendar calendar = getCalendar(i);
-        int row = getWeekOfMonth(calendar)+1;
-        int col = dayOfWeekToIndex(calendar);
+        if(showWeekNumber) {
+            int wof = calendar.get(Calendar.WEEK_OF_YEAR) - (hasDayOffset?0:1);
+            if (wof< firstWeekIndex) firstWeekIndex = wof;
+            if (wof > lastWeekIndex) lastWeekIndex = wof;
+        }
+
+        int row = getWeekOfMonth(calendar) + 1 + (showMonthLabel ? 1 : 0);
+        int col = dayOfWeekToIndex(calendar) + (showWeekNumber ? 1 : 0);
         Day day = getDay(calendar.get(Calendar.DAY_OF_MONTH));
-        if(day == null){
-            day = new Day(i, -1, true, !(calendar.get(Calendar.DAY_OF_WEEK)==Calendar.SATURDAY || calendar.get(Calendar.DAY_OF_WEEK)==Calendar.SUNDAY));
+        if (day == null) {
+            day = new Day(i, -1, true, !(calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY));
         }
 
         drawCellBg(canvas, getCellRect(col, row), getBgPaintForDay(day));
@@ -218,12 +236,20 @@ public class MonthCalendarWidget extends BaseDataView<MonthEntity> {
         return null;
     }
 
+    private float getCollCount(){
+        return showWeekNumber?8:7;
+    }
+
+    private float getRowCount(){
+        return showMonthLabel?8:7;
+    }
+
     private float getCellWidth() {
-        return getMeasuredWidth() / 7f;
+        return getMeasuredWidth() / getCollCount();
     }
 
     private float getCellHeight() {
-        return getMeasuredHeight() / 7f;
+        return getMeasuredHeight() / getRowCount();
     }
 
     private RectF getCellRect(int col, int row) {
@@ -233,10 +259,20 @@ public class MonthCalendarWidget extends BaseDataView<MonthEntity> {
                 (row + 1) * getCellHeight());
     }
 
+    private RectF getCellsRect(int col0, int row0, int col1, int row1) {
+        return new RectF(col0 * getCellWidth(),
+                row0 * getCellHeight(),
+                (col1) * getCellWidth(),
+                (row1) * getCellHeight());
+    }
+
     private void drawHeader(Canvas canvas) {
+        if(showMonthLabel)
+            drawTextLabel(canvas, getCellsRect(0, 0, (int)getCollCount(), 1), getMonthLabelText(calendar.get(Calendar.MONTH)), headerTextPaint);
+
         for(int i=0; i<7; i++){
-            drawCellBg(canvas, getCellRect(i, 0), headerCellPaint);
-            drawTextLabel(canvas, getCellRect(i, 0), getShortDayLabelText(i), headerTextPaint);
+            drawCellBg(canvas, getCellRect((showWeekNumber?1:0)+i, showMonthLabel?1:0), headerCellPaint);
+            drawTextLabel(canvas, getCellRect((showWeekNumber?1:0)+i, showMonthLabel?1:0), getShortDayLabelText(i), headerTextPaint);
         }
     }
 
@@ -258,6 +294,10 @@ public class MonthCalendarWidget extends BaseDataView<MonthEntity> {
         return getResources().getStringArray(R.array.week_day_short_names)[i].toUpperCase();
     }
 
+    private String getMonthLabelText(int i) {
+        return getResources().getStringArray(R.array.month_names_full)[i];
+    }
+
     @Override
     protected boolean onInitView() {
         return true;
@@ -266,6 +306,8 @@ public class MonthCalendarWidget extends BaseDataView<MonthEntity> {
     @Override
     protected void onUpdateView(MonthEntity data) {
         calendar.setTimeInMillis(data.getCurrentMonth().getTimeInMillis());
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        hasDayOffset = calendar.get(Calendar.WEEK_OF_MONTH) == 0;
         postInvalidate();
     }
 }
