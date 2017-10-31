@@ -2,12 +2,13 @@ package com.osh.prodcal.domain;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 /**
  * Created by olegshatava on 24.10.17.
  */
 
-public class MonthKeyEntity implements Parcelable{
+public class MonthKeyEntity implements Parcelable, Comparable{
     private final int year;
     private final int month;
 
@@ -74,5 +75,12 @@ public class MonthKeyEntity implements Parcelable{
     @Override
     public String toString() {
         return getClass().getSimpleName()+"@"+Integer.toHexString(hashCode())+" year="+year+" month="+month;
+    }
+
+    @Override
+    public int compareTo(@NonNull Object o) {
+        if(o instanceof MonthKeyEntity)
+            return Integer.valueOf(hashCode()).compareTo(o.hashCode());
+        return 0;
     }
 }
