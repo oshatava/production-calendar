@@ -70,6 +70,7 @@ public class MonthListFragment extends BaseFragment<MonthListPresenter> implemen
                 ViewUtils.text(view, R.id.yearTitle, StringUtils.toString(monthAdapter.getItemValue(position)));
             }
         });
+        ViewUtils.onClick(view, R.id.back, v->presenter.onCancel());
     }
 
 

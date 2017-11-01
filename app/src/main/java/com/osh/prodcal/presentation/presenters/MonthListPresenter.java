@@ -14,4 +14,5 @@ public interface MonthListPresenter extends Presenter<MonthListView>{
 
     void onSelectMonth(MonthKeyEntity current);
 
+    void onCancel();
 }

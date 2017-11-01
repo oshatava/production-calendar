@@ -70,4 +70,9 @@ public class MonthListPresenterImpl extends BasePresenterComposite<MonthListView
     public void onSelectMonth(MonthKeyEntity monthKeyEntity) {
         setCurrentMonth.execute(monthKeyEntity, d->navigator.close(), this::onError);
     }
+
+    @Override
+    public void onCancel() {
+        navigator.close();
+    }
 }

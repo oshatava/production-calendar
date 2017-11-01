@@ -1,71 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:orientation="vertical">
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <!--ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            >
-
-            <TextView
-                android:id="@+id/holidaysTitle"
-                style="@style/TextHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_holidays"
-                />
-
-            <LinearLayout
-                android:id="@+id/holidaysContainer"
-                style="@style/ItemsVerticalContainer"/>
-
-            <TextView
-                style="@style/TextHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_number_of_days"
-                />
-
-            <LinearLayout
-                android:id="@+id/dayStatContainer"
-                style="@style/ItemsVerticalContainer"/>
-
-            <TextView
-                style="@style/TextHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_number_of_working_hours"
-                />
-
-            <LinearLayout
-                android:id="@+id/weekHoursStatContainer"
-                style="@style/ItemsVerticalContainer"/>
-
-            <TextView
-                style="@style/TextHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_other"
-                />
-
-            <LinearLayout
-                android:id="@+id/otherContainer"
-                style="@style/ItemsVerticalContainer"/>
-
-        </LinearLayout>
-
-    </ScrollView-->
-</FrameLayout>
+<android.support.v7.widget.RecyclerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"/>

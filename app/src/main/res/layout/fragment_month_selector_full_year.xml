@@ -5,14 +5,27 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/yearTitle"
-        style="@style/TextNavBarHeader"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        tools:text="Январь, 2017"
-        />
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/back"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:layout_gravity="center_vertical"
+            style="@style/ImgBtn"
+            />
+
+        <TextView
+            android:id="@+id/yearTitle"
+            style="@style/TextNavBarHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="60dp"
+            tools:text="Январь, 2017"
+            />
+    </FrameLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
