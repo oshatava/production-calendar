@@ -3,11 +3,11 @@ package com.osh.prodcal.presentation.views.listitems;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.osh.android.utils.ViewUtils;
+import com.osh.android.view.BaseDataView;
 import com.osh.prodcal.R;
-import com.osh.prodcal.common.presentation.view.BaseDataListItemView;
-import com.osh.prodcal.presentation.views.utils.ViewUtils;
 
-public class TitleValueItemView extends BaseDataListItemView<TitleValueItemView.Data, TitleValueItemView.Listener> {
+public class TitleValueItemView extends BaseDataView<TitleValueItemView.Listener, TitleValueItemView.Data> {
 
 
     public TitleValueItemView(Context context) {
@@ -31,8 +31,8 @@ public class TitleValueItemView extends BaseDataListItemView<TitleValueItemView.
     protected void onUpdateView(Data data) {
         ViewUtils.text(this, R.id.title, data.getTitle());
         ViewUtils.text(this, R.id.value, data.getValue());
-        if(data.isCanBeClicked() && getListener()!=null){
-            ViewUtils.onClick(this, v->getListener().onClick(data));
+        if(data.isCanBeClicked() && getPresenter()!=null){
+            ViewUtils.onClick(this, v->getPresenter().onClick(data));
         }
     }
 

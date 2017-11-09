@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:orientation="vertical">
+<com.osh.prodcal.presentation.views.impl.month.MonthCalendarViewImpl
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <com.osh.prodcal.presentation.views.widgets.MonthCalendarWidget
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="8dp"
-        app:textSize="12"
-        app:weekTitleTextColor="@color/gray"
         app:nonWorkingDayBgColor="@color/red"
         app:showWeekNumber="false"
+        app:textSize="12"
+        app:weekTitleTextColor="@color/gray"
         />
 
-</FrameLayout>
+</com.osh.prodcal.presentation.views.impl.month.MonthCalendarViewImpl>

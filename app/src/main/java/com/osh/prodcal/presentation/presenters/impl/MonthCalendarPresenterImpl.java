@@ -2,24 +2,28 @@ package com.osh.prodcal.presentation.presenters.impl;
 
 import android.os.Bundle;
 
-import com.osh.prodcal.common.presentation.presenter.BasePresenter;
+import com.osh.mvp.presenter.BasePresenter;
 import com.osh.prodcal.domain.MonthEntity;
 import com.osh.prodcal.domain.MonthKeyEntity;
 import com.osh.prodcal.domain.usecase.GetMonthEntity;
 import com.osh.prodcal.presentation.presenters.MonthCalendarPresenter;
 import com.osh.prodcal.presentation.views.MonthCalendarView;
 
+import javax.inject.Inject;
+
 /**
  * Created by olegshatava on 23.10.17.
  */
 
-public class MonthCalendarPresenterImpl extends BasePresenter<GetMonthEntity, MonthCalendarView> implements MonthCalendarPresenter {
+public class MonthCalendarPresenterImpl extends BasePresenter<GetMonthEntity, MonthCalendarView>
+        implements MonthCalendarPresenter {
 
     private MonthKeyEntity key;
     private MonthEntity month;
 
-    public MonthCalendarPresenterImpl(GetMonthEntity model, MonthCalendarView view) {
-        super(model, view);
+    @Inject
+    public MonthCalendarPresenterImpl(GetMonthEntity model) {
+        super(model);
     }
 
     @Override

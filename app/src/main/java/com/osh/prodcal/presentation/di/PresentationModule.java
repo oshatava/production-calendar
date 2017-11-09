@@ -32,10 +32,12 @@ public class PresentationModule {
         return new MonthSelectorPresenterImpl(navigator, getMonthsList, observeCurrentMonth, setCurrentMonth, null);
     }
 
+    /*
     @Provides
     public MonthCalendarPresenter provideMonthCalendarPresenter(GetMonthEntity getMonthEntity){
-        return new MonthCalendarPresenterImpl(getMonthEntity, null);
+        return new MonthCalendarPresenterImpl(getMonthEntity);
     }
+    */
 
     @Provides
     public MonthInfoPresenter provideMonthInfoPresenter(Navigator navigator,

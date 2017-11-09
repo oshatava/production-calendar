@@ -10,11 +10,11 @@ import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
+import com.osh.android.utils.ViewUtils;
+import com.osh.android.view.BaseDataView;
 import com.osh.prodcal.R;
-import com.osh.prodcal.common.presentation.view.BaseDataView;
 import com.osh.prodcal.data.dto.Day;
 import com.osh.prodcal.domain.MonthEntity;
-import com.osh.prodcal.presentation.views.utils.ViewUtils;
 
 import java.util.Calendar;
 
@@ -22,7 +22,7 @@ import java.util.Calendar;
  * Created by olegshatava on 24.10.17.
  */
 
-public class MonthCalendarWidget extends BaseDataView<MonthEntity> {
+public class MonthCalendarWidget extends BaseDataView<MonthCalendarWidget.MonthCalendarWidgetPresenter, MonthEntity> {
 
     private static final int DEFAULT_TEXT_SIZE = 12;
     private Calendar calendar = Calendar.getInstance();
@@ -309,5 +309,10 @@ public class MonthCalendarWidget extends BaseDataView<MonthEntity> {
         calendar.set(Calendar.DAY_OF_MONTH, 1);
         hasDayOffset = calendar.get(Calendar.WEEK_OF_MONTH) == 0;
         postInvalidate();
+    }
+
+
+    public interface MonthCalendarWidgetPresenter{
+        void onDateSelected(Calendar date);
     }
 }

@@ -1,8 +1,8 @@
 package com.osh.prodcal.domain.usecase;
 
-import com.osh.prodcal.common.domain.executor.PostExecutionThread;
-import com.osh.prodcal.common.domain.executor.ThreadExecutor;
-import com.osh.prodcal.common.domain.usecase.BaseUseCase;
+import com.osh.mvp.domain.executor.PostExecutionThread;
+import com.osh.mvp.domain.executor.ThreadExecutor;
+import com.osh.mvp.domain.usecase.BaseUseCase;
 import com.osh.prodcal.domain.MonthEntity;
 import com.osh.prodcal.domain.repository.MonthRepository;
 

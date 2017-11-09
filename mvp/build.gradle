@@ -1,0 +1,50 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion project.androidCompileSdkVersion
+    buildToolsVersion project.androidBuildToolsVersion
+    defaultConfig {
+        minSdkVersion project.androidMinSdkVersion
+        targetSdkVersion project.androidTargetSdkVersion
+        versionCode project.androidVersionCode
+        versionName project.androidVersionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    compile project.libAppcompat
+    compile project.libDesign
+    compile project.libRxJava
+    compile project.libRxAndroid
+    compile project.libGson
+    compile project.libDagger
+
+    apt project.aptDagger
+
+    provided project.providedJavaXAnnotation
+
+    testCompile 'junit:junit:4.12'
+}
