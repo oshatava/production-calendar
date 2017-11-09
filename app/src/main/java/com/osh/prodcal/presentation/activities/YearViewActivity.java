@@ -7,12 +7,6 @@ import com.osh.prodcal.R;
  */
 
 public class YearViewActivity extends BaseActivity {
-
-    @Override
-    protected void inject() {
-
-    }
-
     @Override
     protected int getViewResId() {
         return R.layout.activity_year_view;

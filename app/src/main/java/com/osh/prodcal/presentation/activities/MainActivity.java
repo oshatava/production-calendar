@@ -9,11 +9,6 @@ import com.osh.prodcal.R;
 public class MainActivity extends BaseActivity {
 
     @Override
-    protected void inject() {
-
-    }
-
-    @Override
     protected int getViewResId() {
         return R.layout.activity_main;
     }

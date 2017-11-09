@@ -2,43 +2,39 @@
 <com.osh.prodcal.presentation.views.impl.month.MonthSelectorViewImpl
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Header"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_weight="1"
-    style="@style/Header"
-    >
+    android:layout_weight="1">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        >
 
-
-
-        <FrameLayout
+        <TextView
+            android:id="@+id/monthTitle"
+            style="@style/TextNavBarHeader"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            >
-
-            <TextView
-                android:id="@+id/monthTitle"
-                style="@style/TextNavBarHeader"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="16dp"
-                tools:text="Январь, 2017"
-                />
-
-            <ImageView
-                android:id="@+id/showYearCalendar"
-                style="@style/ImgBtn"
-                android:layout_gravity="right|center_vertical"
-                android:src="@drawable/ic_date_range_black_24dp"
-                />
-        </FrameLayout>
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/pager"
-            android:layout_marginTop="?actionBarSize"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            tools:text="Январь, 2017"
             />
+
+        <ImageView
+            android:id="@+id/showYearCalendar"
+            style="@style/ImgBtn"
+            android:layout_gravity="right|center_vertical"
+            android:src="@drawable/ic_date_range_black_24dp"
+            />
+    </FrameLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?actionBarSize"
+        />
 
 </com.osh.prodcal.presentation.views.impl.month.MonthSelectorViewImpl>

@@ -16,5 +16,9 @@ public abstract class BaseActivity extends AbstractActivity<AppComponent> implem
         return PCApplication.getAppComponent(this);
     }
 
+    @Override
+    protected void inject() {
+        // stub
+    }
 
 }
