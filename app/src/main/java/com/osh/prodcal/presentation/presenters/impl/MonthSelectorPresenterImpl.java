@@ -2,9 +2,8 @@ package com.osh.prodcal.presentation.presenters.impl;
 
 import android.util.Log;
 
+import com.osh.mvp.presenter.BasePresenterComposite;
 import com.osh.prodcal.application.Navigator;
-import com.osh.prodcal.common.domain.usecase.UseCaseCollection;
-import com.osh.prodcal.common.presentation.presenter.BasePresenterComposite;
 import com.osh.prodcal.domain.MonthKeyEntity;
 import com.osh.prodcal.domain.usecase.GetMonthsList;
 import com.osh.prodcal.domain.usecase.ObserveCurrentMonth;

@@ -1,5 +1,6 @@
 package com.osh.prodcal.data;
 
+import com.osh.android.utils.CollectionUtils;
 import com.osh.prodcal.data.dto.Day;
 import com.osh.prodcal.data.dto.Holiday;
 import com.osh.prodcal.data.dto.Month;
@@ -8,7 +9,6 @@ import com.osh.prodcal.data.repository.MonthRepositoryImpl;
 import com.osh.prodcal.data.repository.source.MonthDataSource;
 import com.osh.prodcal.domain.MonthKeyEntity;
 import com.osh.prodcal.domain.repository.MonthRepository;
-import com.osh.prodcal.presentation.views.utils.CollectionUtils;
 
 import org.junit.Assert;
 import org.junit.Before;

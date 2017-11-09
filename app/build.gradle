@@ -36,6 +36,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
+    compile project(':android')
+    compile project(':mvp')
+
     compile project.libAppcompat
     compile project.libDesign
     compile project.libRxJava

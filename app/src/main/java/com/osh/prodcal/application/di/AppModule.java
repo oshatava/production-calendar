@@ -4,8 +4,8 @@ package com.osh.prodcal.application.di;
 import android.content.Context;
 
 import com.osh.prodcal.application.Navigator;
-import com.osh.prodcal.common.domain.executor.PostExecutionThread;
-import com.osh.prodcal.common.domain.executor.ThreadExecutor;
+import com.osh.mvp.domain.executor.PostExecutionThread;
+import com.osh.mvp.domain.executor.ThreadExecutor;
 import com.osh.prodcal.data.di.DataModule;
 import com.osh.prodcal.presentation.di.PresentationModule;
 

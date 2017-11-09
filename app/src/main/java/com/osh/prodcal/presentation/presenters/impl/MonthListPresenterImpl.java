@@ -1,19 +1,14 @@
 package com.osh.prodcal.presentation.presenters.impl;
 
-import android.os.Bundle;
-
+import com.osh.mvp.presenter.BasePresenterComposite;
 import com.osh.prodcal.application.Navigator;
-import com.osh.prodcal.common.presentation.presenter.BasePresenterComposite;
 import com.osh.prodcal.domain.MonthEntity;
 import com.osh.prodcal.domain.MonthKeyEntity;
 import com.osh.prodcal.domain.usecase.GetMonthEntitiesList;
-import com.osh.prodcal.domain.usecase.GetMonthEntitiesListForYear;
 import com.osh.prodcal.domain.usecase.ObserveCurrentMonth;
 import com.osh.prodcal.domain.usecase.SetCurrentMonth;
 import com.osh.prodcal.presentation.presenters.MonthListPresenter;
-import com.osh.prodcal.presentation.presenters.YearCalendarPresenter;
 import com.osh.prodcal.presentation.views.MonthListView;
-import com.osh.prodcal.presentation.views.YearCalendarView;
 
 import java.util.List;
 

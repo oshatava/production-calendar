@@ -1,8 +1,7 @@
 package com.osh.prodcal.presentation.presenters.impl;
 
+import com.osh.mvp.presenter.BasePresenterComposite;
 import com.osh.prodcal.application.Navigator;
-import com.osh.prodcal.common.domain.usecase.UseCaseCollection;
-import com.osh.prodcal.common.presentation.presenter.BasePresenterComposite;
 import com.osh.prodcal.data.dto.Holiday;
 import com.osh.prodcal.domain.MonthEntity;
 import com.osh.prodcal.domain.MonthKeyEntity;

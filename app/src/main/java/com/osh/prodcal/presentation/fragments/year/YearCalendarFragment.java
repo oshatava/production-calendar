@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.osh.android.utils.ViewUtils;
 import com.osh.prodcal.R;
 import com.osh.prodcal.application.di.AppComponent;
 import com.osh.prodcal.domain.MonthEntity;
@@ -13,7 +14,6 @@ import com.osh.prodcal.domain.MonthKeyEntity;
 import com.osh.prodcal.presentation.fragments.common.BaseFragment;
 import com.osh.prodcal.presentation.presenters.YearCalendarPresenter;
 import com.osh.prodcal.presentation.views.YearCalendarView;
-import com.osh.prodcal.presentation.views.utils.ViewUtils;
 import com.osh.prodcal.presentation.views.widgets.MonthCalendarWidget;
 
 import java.util.Calendar;
@@ -25,9 +25,9 @@ import javax.inject.Inject;
  * Created by olegshatava on 23.10.17.
  */
 
-public class YearCalendarFragment extends BaseFragment<YearCalendarPresenter> implements YearCalendarView {
+public class YearCalendarFragment extends BaseFragment<YearCalendarView, YearCalendarPresenter> {
 
-    static YearCalendarFragment newInstance(int year) {
+    public static YearCalendarFragment newInstance(int year) {
         YearCalendarFragment f = new YearCalendarFragment();
         Bundle args = new Bundle();
         args.putInt(YearCalendarPresenter.KEY_YEAR, year);
@@ -35,11 +35,7 @@ public class YearCalendarFragment extends BaseFragment<YearCalendarPresenter> im
         return f;
     }
 
-    private SparseArray<MonthCalendarWidget> calendarWidgets = new SparseArray<>();
-
-    public YearCalendarFragment(){
-        setRetainInstance(true);
-    }
+    public YearCalendarFragment(){}
 
     @Inject
     public YearCalendarPresenter presenter;
@@ -55,36 +51,8 @@ public class YearCalendarFragment extends BaseFragment<YearCalendarPresenter> im
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View fragmentView = inflater.inflate(R.layout.fragment_year_calendar, container, false);
-        initView(fragmentView);
-        getPresenter().setView(this);
-        return fragmentView;
+    protected int getViewResId() {
+        return R.layout.fragment_year_calendar;
     }
 
-    private void initView(View view){
-        calendarWidgets.put(Calendar.JANUARY, ViewUtils.findViewById(view, R.id.month0));
-        calendarWidgets.put(Calendar.FEBRUARY, ViewUtils.findViewById(view, R.id.month1));
-        calendarWidgets.put(Calendar.MARCH, ViewUtils.findViewById(view, R.id.month2));
-        calendarWidgets.put(Calendar.APRIL, ViewUtils.findViewById(view, R.id.month3));
-        calendarWidgets.put(Calendar.MAY, ViewUtils.findViewById(view, R.id.month4));
-        calendarWidgets.put(Calendar.JUNE, ViewUtils.findViewById(view, R.id.month5));
-        calendarWidgets.put(Calendar.JULY, ViewUtils.findViewById(view, R.id.month6));
-        calendarWidgets.put(Calendar.AUGUST, ViewUtils.findViewById(view, R.id.month7));
-        calendarWidgets.put(Calendar.SEPTEMBER, ViewUtils.findViewById(view, R.id.month8));
-        calendarWidgets.put(Calendar.OCTOBER, ViewUtils.findViewById(view, R.id.month9));
-        calendarWidgets.put(Calendar.NOVEMBER, ViewUtils.findViewById(view, R.id.month10));
-        calendarWidgets.put(Calendar.DECEMBER, ViewUtils.findViewById(view, R.id.month11));
-    }
-
-    @Override
-    public void showYear(List<MonthEntity> monthEntities) {
-        for(MonthEntity me:monthEntities){
-            MonthCalendarWidget cv = calendarWidgets.get(me.getMonthId());
-            if(cv!=null) {
-                cv.showData(me);
-                ViewUtils.onClick(cv, v->getPresenter().onSelectMonth(new MonthKeyEntity(me.getCurrentYear(), me.getMonthId())));
-            }
-        }
-    }
 }
