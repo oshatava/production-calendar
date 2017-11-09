@@ -4,6 +4,7 @@ import com.osh.prodcal.R;
 import com.osh.prodcal.application.di.AppComponent;
 import com.osh.prodcal.presentation.fragments.common.BaseFragment;
 import com.osh.prodcal.presentation.presenters.MonthInfoPresenter;
+import com.osh.prodcal.presentation.presenters.impl.MonthInfoPresenterImpl;
 import com.osh.prodcal.presentation.views.MonthInfoView;
 
 import javax.inject.Inject;
@@ -14,7 +15,7 @@ public class MonthInfoFragment extends BaseFragment<MonthInfoView, MonthInfoPres
     public MonthInfoFragment() {}
 
     @Inject
-    public MonthInfoPresenter presenter;
+    public MonthInfoPresenterImpl presenter;
 
     @Override
     public MonthInfoPresenter getPresenter() {

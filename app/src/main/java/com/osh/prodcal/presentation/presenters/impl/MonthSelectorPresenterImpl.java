@@ -13,6 +13,8 @@ import com.osh.prodcal.presentation.views.MonthSelectorView;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * Created by olegshatava on 23.10.17.
  */
@@ -25,12 +27,12 @@ public class MonthSelectorPresenterImpl extends BasePresenterComposite<MonthSele
     private ObserveCurrentMonth observeCurrentMonth;
     private Navigator navigator;
 
+    @Inject
     public MonthSelectorPresenterImpl(Navigator navigator,
                                       GetMonthsList getMonthsList,
                                       ObserveCurrentMonth observeCurrentMonth,
-                                      SetCurrentMonth setCurrentMonth,
-                                      MonthSelectorView view) {
-        super(view, getMonthsList, observeCurrentMonth, setCurrentMonth);
+                                      SetCurrentMonth setCurrentMonth) {
+        super(getMonthsList, observeCurrentMonth, setCurrentMonth);
         this.navigator = navigator;
         this.getMonthsList = getMonthsList;
         this.setCurrentMonth = setCurrentMonth;

@@ -17,6 +17,7 @@ import com.osh.prodcal.domain.MonthEntity;
 import com.osh.prodcal.domain.MonthKeyEntity;
 import com.osh.prodcal.presentation.fragments.common.BaseFragment;
 import com.osh.prodcal.presentation.presenters.MonthListPresenter;
+import com.osh.prodcal.presentation.presenters.impl.MonthListPresenterImpl;
 import com.osh.prodcal.presentation.views.MonthListView;
 
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ public class MonthListFragment extends BaseFragment<MonthListView, MonthListPres
     }
 
     @Inject
-    public MonthListPresenter presenter;
+    public MonthListPresenterImpl presenter;
 
     @Override
     public MonthListPresenter getPresenter() {

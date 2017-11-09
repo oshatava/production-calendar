@@ -16,6 +16,7 @@ import com.osh.prodcal.application.di.AppComponent;
 import com.osh.prodcal.domain.MonthKeyEntity;
 import com.osh.prodcal.presentation.fragments.common.BaseFragment;
 import com.osh.prodcal.presentation.presenters.MonthSelectorPresenter;
+import com.osh.prodcal.presentation.presenters.impl.MonthSelectorPresenterImpl;
 import com.osh.prodcal.presentation.views.MonthSelectorView;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class MonthSelectorFragment extends BaseFragment<MonthSelectorView, Month
     }
 
     @Inject
-    public MonthSelectorPresenter presenter;
+    public MonthSelectorPresenterImpl presenter;
 
     @Override
     public MonthSelectorPresenter getPresenter() {

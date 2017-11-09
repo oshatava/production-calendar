@@ -12,6 +12,8 @@ import com.osh.prodcal.presentation.views.MonthListView;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * Created by olegshatava on 23.10.17.
  */
@@ -25,11 +27,12 @@ public class MonthListPresenterImpl extends BasePresenterComposite<MonthListView
     private ObserveCurrentMonth observeCurrentMonth;
     private SetCurrentMonth setCurrentMonth;
 
+    @Inject
     public MonthListPresenterImpl(Navigator navigator,
                                   GetMonthEntitiesList getMonthEntitiesList,
                                   ObserveCurrentMonth observeCurrentMonth,
                                   SetCurrentMonth setCurrentMonth) {
-        super(null, getMonthEntitiesList, observeCurrentMonth, setCurrentMonth);
+        super(getMonthEntitiesList, observeCurrentMonth, setCurrentMonth);
         this.navigator = navigator;
         this.getMonthEntitiesList = getMonthEntitiesList;
         this.observeCurrentMonth = observeCurrentMonth;

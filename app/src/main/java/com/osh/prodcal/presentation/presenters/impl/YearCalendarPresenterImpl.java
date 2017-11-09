@@ -15,6 +15,8 @@ import com.osh.prodcal.presentation.views.YearCalendarView;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * Created by olegshatava on 23.10.17.
  */
@@ -27,11 +29,11 @@ public class YearCalendarPresenterImpl extends BasePresenterComposite<YearCalend
     private GetMonthEntitiesListForYear getMonthEntitiesListForYear;
     private SetCurrentMonth setCurrentMonth;
 
+    @Inject
     public YearCalendarPresenterImpl(Navigator navigator,
-                                     YearCalendarView view,
                                      GetMonthEntitiesListForYear getMonthEntitiesListForYear,
                                      SetCurrentMonth setCurrentMonth) {
-        super(view, getMonthEntitiesListForYear, setCurrentMonth);
+        super(getMonthEntitiesListForYear, setCurrentMonth);
         this.navigator = navigator;
         this.getMonthEntitiesListForYear = getMonthEntitiesListForYear;
         this.setCurrentMonth = setCurrentMonth;

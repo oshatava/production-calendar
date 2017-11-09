@@ -13,6 +13,7 @@ import com.osh.prodcal.domain.MonthEntity;
 import com.osh.prodcal.domain.MonthKeyEntity;
 import com.osh.prodcal.presentation.fragments.common.BaseFragment;
 import com.osh.prodcal.presentation.presenters.YearCalendarPresenter;
+import com.osh.prodcal.presentation.presenters.impl.YearCalendarPresenterImpl;
 import com.osh.prodcal.presentation.views.YearCalendarView;
 import com.osh.prodcal.presentation.views.widgets.MonthCalendarWidget;
 
@@ -38,7 +39,7 @@ public class YearCalendarFragment extends BaseFragment<YearCalendarView, YearCal
     public YearCalendarFragment(){}
 
     @Inject
-    public YearCalendarPresenter presenter;
+    public YearCalendarPresenterImpl presenter;
 
     @Override
     public YearCalendarPresenter getPresenter() {
