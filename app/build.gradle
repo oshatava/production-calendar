@@ -52,6 +52,8 @@ dependencies {
 
     compile project(':android')
     compile project(':mvp')
+    compile project(':domain')
+    compile project(':data')
 
     compile project.libAppcompat
     compile project.libDesign

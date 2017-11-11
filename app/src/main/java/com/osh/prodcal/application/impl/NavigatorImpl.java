@@ -5,9 +5,9 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 
+import com.osh.prodcal.domain.dto.Holiday;
 import com.osh.prodcal.application.Navigator;
-import com.osh.prodcal.data.dto.Holiday;
-import com.osh.prodcal.presentation.activities.YearViewActivity;
+import com.osh.prodcal.yearlist.YearListActivity;
 
 import java.lang.ref.WeakReference;
 
@@ -39,7 +39,7 @@ public class NavigatorImpl implements Navigator {
     public void showMonthSelectorActivity() {
         Activity activity = currentActivity.get();
         if(activity!=null) {
-            Intent intent = new Intent(activity, YearViewActivity.class);
+            Intent intent = new Intent(activity, YearListActivity.class);
             activity.startActivity(intent);
         }
     }

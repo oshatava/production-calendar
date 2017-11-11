@@ -7,14 +7,14 @@ import android.util.Log;
 
 import com.osh.mvp.presenter.HasPresenter;
 import com.osh.mvp.presenter.HasState;
-import com.osh.mvp.presenter.Presenter;
+import com.osh.mvp.presenter.IPresenter;
 
 
 /**
  * Created by olegshatava on 23.10.17.
  */
 
-public abstract class BaseFragment<PresenterClass extends Presenter> extends Fragment
+public abstract class BaseFragment<PresenterClass extends IPresenter> extends Fragment
         implements HasPresenter<PresenterClass> {
 
     protected final String TAG = getClass().getSimpleName();
