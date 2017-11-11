@@ -1,13 +1,13 @@
 package com.osh.mvp.presenter;
 
-import com.osh.mvp.view.View;
+import com.osh.mvp.view.IView;
 
 import java.lang.ref.WeakReference;
 
 import io.reactivex.disposables.Disposable;
 
 
-public class BasePresenter<ModelClass extends Disposable, ViewClass extends View> implements Presenter<ViewClass> {
+public class BasePresenter<ModelClass extends Disposable, ViewClass extends IView> implements IPresenter<ViewClass> {
     protected final String TAG = getClass().getSimpleName();
 
     private ModelClass model;

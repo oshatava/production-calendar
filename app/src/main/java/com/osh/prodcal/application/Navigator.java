@@ -1,6 +1,7 @@
 package com.osh.prodcal.application;
 
-import com.osh.prodcal.data.dto.Holiday;
+
+import com.osh.prodcal.domain.dto.Holiday;
 
 /**
  * Created by olegshatava on 24.10.17.

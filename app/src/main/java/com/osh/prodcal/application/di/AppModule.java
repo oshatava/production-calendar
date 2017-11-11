@@ -3,11 +3,10 @@ package com.osh.prodcal.application.di;
 
 import android.content.Context;
 
+import com.osh.prodcal.data.di.DataModule;
 import com.osh.prodcal.application.Navigator;
 import com.osh.mvp.domain.executor.PostExecutionThread;
 import com.osh.mvp.domain.executor.ThreadExecutor;
-import com.osh.prodcal.data.di.DataModule;
-import com.osh.prodcal.presentation.di.PresentationModule;
 
 import dagger.Module;
 import dagger.Provides;
@@ -19,8 +18,7 @@ import io.reactivex.schedulers.Schedulers;
  * Created by oleg on 2/7/2017.
  */
 @Module(includes = {
-        DataModule.class,
-        PresentationModule.class
+        DataModule.class
 })
 public class AppModule  {
     private Navigator navigator;

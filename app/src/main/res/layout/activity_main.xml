@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@id/container"
-        android:name="com.osh.prodcal.presentation.fragments.month.MonthSelectorFragment"
+        android:name="com.osh.prodcal.monthselector.MonthSelectorFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -15,7 +15,7 @@
 
     <fragment
         android:id="@+id/monthInfo"
-        android:name="com.osh.prodcal.presentation.fragments.month.MonthInfoFragment"
+        android:name="com.osh.prodcal.monthinfo.MonthInfoFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

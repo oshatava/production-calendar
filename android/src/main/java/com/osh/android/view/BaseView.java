@@ -8,15 +8,13 @@ import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
-import com.osh.mvp.presenter.HasPresenter;
-import com.osh.mvp.presenter.Presenter;
-import com.osh.mvp.view.View;
+import com.osh.mvp.view.IView;
 
 /**
  * Created by olegshatava on 23.10.17.
  */
 
-public abstract class BaseView<PresenterClass> extends FrameLayout implements View<PresenterClass>, RequiredFragmentManager {
+public abstract class BaseView<PresenterClass> extends FrameLayout implements IView<PresenterClass>, RequiredFragmentManager {
     private boolean viewIsCreated = false;
     private FragmentManager fragmentManager;
     private PresenterClass presenter;

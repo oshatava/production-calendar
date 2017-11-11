@@ -13,14 +13,14 @@
         android:name="com.osh.prodcal.application.PCApplication">
 
         <activity
-            android:name="com.osh.prodcal.presentation.activities.MainActivity">
+            android:name="com.osh.prodcal.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.osh.prodcal.presentation.activities.YearViewActivity" />
+        <activity android:name="com.osh.prodcal.yearlist.YearListActivity" />
 
     </application>
 

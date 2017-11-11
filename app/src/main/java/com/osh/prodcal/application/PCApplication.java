@@ -5,13 +5,12 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 
+import com.osh.prodcal.data.di.DataModule;
+import com.osh.prodcal.data.di.DataSourceModule;
 import com.osh.prodcal.application.di.AppComponent;
 import com.osh.prodcal.application.di.AppModule;
 import com.osh.prodcal.application.di.DaggerAppComponent;
 import com.osh.prodcal.application.impl.NavigatorImpl;
-import com.osh.prodcal.data.di.DataModule;
-import com.osh.prodcal.data.di.DataSourceModule;
-import com.osh.prodcal.presentation.di.PresentationModule;
 
 /**
  * Created by olegshatava on 23.10.17.
@@ -37,7 +36,6 @@ public class PCApplication extends Application{
                 .appModule(new AppModule(navigator, getApplicationContext()))
                 .dataSourceModule(new DataSourceModule())
                 .dataModule(new DataModule())
-                .presentationModule(new PresentationModule())
                 .build();
 
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {

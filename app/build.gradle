@@ -13,8 +13,19 @@ android {
         versionName project.androidVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        release {
+            keyAlias project.SIGNING_CONFIG_ALIAS
+            keyPassword project.SIGNING_CONFIG_PASSWORD
+            storeFile file(project.SIGNING_CONFIG_JKS_PATH)
+            storePassword project.SIGNING_CONFIG_PASSWORD
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -28,6 +39,9 @@ android {
     testOptions {
         unitTests.returnDefaultValues = true
     }
+
+
+
 }
 
 dependencies {
@@ -38,6 +52,8 @@ dependencies {
 
     compile project(':android')
     compile project(':mvp')
+    compile project(':domain')
+    compile project(':data')
 
     compile project.libAppcompat
     compile project.libDesign
