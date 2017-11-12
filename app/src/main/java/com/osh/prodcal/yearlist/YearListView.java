@@ -16,7 +16,7 @@ import com.osh.android.view.BaseView;
 import com.osh.prodcal.R;
 import com.osh.prodcal.domain.MonthEntity;
 import com.osh.prodcal.domain.MonthKeyEntity;
-import com.osh.prodcal.yearcalendar.YearCalendarFragment;
+import com.osh.prodcal.yearlist.yearcalendar.YearCalendarFragment;
 
 import java.util.ArrayList;
 import java.util.List;
