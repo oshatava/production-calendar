@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.osh.prodcal.yearcalendar.YearCalendarView
+<com.osh.prodcal.yearlist.yearcalendar.YearCalendarView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -15,19 +15,19 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <com.osh.prodcal.presentation.widgets.MonthCalendarWidget
+            <com.osh.prodcal.widgets.MonthCalendarWidget
                 android:id="@+id/month0"
                 style="@style/YearViewCalendarStyle"/>
 
-            <com.osh.prodcal.presentation.widgets.MonthCalendarWidget
+            <com.osh.prodcal.widgets.MonthCalendarWidget
                 android:id="@+id/month1"
                 style="@style/YearViewCalendarStyle"/>
 
-            <com.osh.prodcal.presentation.widgets.MonthCalendarWidget
+            <com.osh.prodcal.widgets.MonthCalendarWidget
                 android:id="@+id/month2"
                 style="@style/YearViewCalendarStyle"/>
 
-            <com.osh.prodcal.presentation.widgets.MonthCalendarWidget
+            <com.osh.prodcal.widgets.MonthCalendarWidget
                 android:id="@+id/month3"
                 style="@style/YearViewCalendarStyle"/>
 
@@ -40,19 +40,19 @@
             android:orientation="horizontal">
 
 
-            <com.osh.prodcal.presentation.widgets.MonthCalendarWidget
+            <com.osh.prodcal.widgets.MonthCalendarWidget
                 android:id="@+id/month4"
                 style="@style/YearViewCalendarStyle"/>
 
-            <com.osh.prodcal.presentation.widgets.MonthCalendarWidget
+            <com.osh.prodcal.widgets.MonthCalendarWidget
                 android:id="@+id/month5"
                 style="@style/YearViewCalendarStyle"/>
 
-            <com.osh.prodcal.presentation.widgets.MonthCalendarWidget
+            <com.osh.prodcal.widgets.MonthCalendarWidget
                 android:id="@+id/month6"
                 style="@style/YearViewCalendarStyle"/>
 
-            <com.osh.prodcal.presentation.widgets.MonthCalendarWidget
+            <com.osh.prodcal.widgets.MonthCalendarWidget
                 android:id="@+id/month7"
                 style="@style/YearViewCalendarStyle"/>
 
@@ -64,22 +64,22 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <com.osh.prodcal.presentation.widgets.MonthCalendarWidget
+            <com.osh.prodcal.widgets.MonthCalendarWidget
                 android:id="@+id/month8"
                 style="@style/YearViewCalendarStyle"/>
 
-            <com.osh.prodcal.presentation.widgets.MonthCalendarWidget
+            <com.osh.prodcal.widgets.MonthCalendarWidget
                 android:id="@+id/month9"
                 style="@style/YearViewCalendarStyle"/>
 
-            <com.osh.prodcal.presentation.widgets.MonthCalendarWidget
+            <com.osh.prodcal.widgets.MonthCalendarWidget
                 android:id="@+id/month10"
                 style="@style/YearViewCalendarStyle"/>
 
-            <com.osh.prodcal.presentation.widgets.MonthCalendarWidget
+            <com.osh.prodcal.widgets.MonthCalendarWidget
                 android:id="@+id/month11"
                 style="@style/YearViewCalendarStyle"/>
         </LinearLayout>
 
     </LinearLayout>
-</com.osh.prodcal.yearcalendar.YearCalendarView>
+</com.osh.prodcal.yearlist.yearcalendar.YearCalendarView>

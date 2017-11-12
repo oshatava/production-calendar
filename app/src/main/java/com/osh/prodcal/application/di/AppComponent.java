@@ -1,10 +1,10 @@
 package com.osh.prodcal.application.di;
 
-import com.osh.prodcal.monthcalendar.MonthCalendarFragment;
-import com.osh.prodcal.monthinfo.MonthInfoFragment;
-import com.osh.prodcal.monthselector.MonthSelectorFragment;
+import com.osh.prodcal.yearlist.monthcalendar.MonthCalendarFragment;
+import com.osh.prodcal.monthinfo.monthdetails.MonthDetailsFragment;
+import com.osh.prodcal.monthinfo.monthselector.MonthSelectorFragment;
 import com.osh.prodcal.yearlist.YearListFragment;
-import com.osh.prodcal.yearcalendar.YearCalendarFragment;
+import com.osh.prodcal.yearlist.yearcalendar.YearCalendarFragment;
 
 import javax.inject.Singleton;
 
@@ -21,7 +21,7 @@ public interface AppComponent {
 
     void inject(MonthCalendarFragment monthCalendarFragment);
 
-    void inject(MonthInfoFragment monthInfoFragment);
+    void inject(MonthDetailsFragment monthInfoFragment);
 
     void inject(YearListFragment yearListFragment);
 

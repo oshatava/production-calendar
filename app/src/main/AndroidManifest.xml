@@ -13,7 +13,7 @@
         android:name="com.osh.prodcal.application.PCApplication">
 
         <activity
-            android:name="com.osh.prodcal.main.MainActivity">
+            android:name="com.osh.prodcal.monthinfo.MonthInfoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

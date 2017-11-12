@@ -1,4 +1,4 @@
-package com.osh.prodcal.yearlist;
+package com.osh.prodcal.monthinfo.monthselector;
 
 import com.osh.prodcal.R;
 import com.osh.prodcal.application.di.AppComponent;
@@ -10,17 +10,17 @@ import javax.inject.Inject;
  * Created by olegshatava on 23.10.17.
  */
 
-public class YearListFragment extends BaseFragment<YearListContract.View, YearListContract.Presenter>  {
+public class MonthSelectorFragment extends BaseFragment<MonthSelectorContract.View, MonthSelectorContract.Presenter> {
 
+    public MonthSelectorFragment(){
 
-    public YearListFragment(){
     }
 
     @Inject
-    public YearListPresenter presenter;
+    public MonthSelectorPresenter presenter;
 
     @Override
-    public YearListContract.Presenter getPresenter() {
+    public MonthSelectorContract.Presenter getPresenter() {
         return presenter;
     }
 
@@ -31,6 +31,7 @@ public class YearListFragment extends BaseFragment<YearListContract.View, YearLi
 
     @Override
     protected int getViewResId() {
-        return R.layout.fragment_month_selector_full_year;
+        return R.layout.fragment_month_selector;
     }
+
 }
